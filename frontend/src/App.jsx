@@ -1,33 +1,41 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
-
+import logo from './assets/testWalletLogo.svg'
+import { useState } from 'react'
+import { Select } from "antd" 
 function App() {
-  const [count, setCount] = useState(0)
+  const [selectChain, setSelectChain] = useState("0x1")
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <div className='walletLayout'>
+        <header>
+          <img src={logo} className='headerLogo' alt="logo"/>
+          <Select
+            onChange={(val) => setSelectChain(val)}
+            value={selectChain}
+            options={[
+              {
+                label: "Ethereum",
+                value: "0x1"
+              },
+              {
+                label: "Not Razor Testnet",
+                value: "0x13881"
+              },
+              {
+                label: "polygon",
+                value: "0x89"
+              },
+              {
+                label: "Avalanche",
+                value: "0xa86a"
+              }
+            ]}
+            className='dropDown'>
+
+          </Select>
+        </header>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
   )
 }
