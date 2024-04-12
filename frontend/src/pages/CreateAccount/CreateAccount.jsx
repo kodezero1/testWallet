@@ -4,12 +4,18 @@ import { ExclamationCircleOutlined } from "@ant-design/icons";
 import { useNavigate } from 'react-router-dom'
 import { ethers } from 'ethers'
 
-export default function CreateAccount() {
+export default function CreateAccount({setWallet, setSeedPhrase}) {
   const navigate = useNavigate()
   const [newSeedPhrase, setNewSeedPhrase] = useState(null)
   
   const generateWallet = () => {
     const mnemonic = ethers.Wallet.createRandom().mnemonic.phrase
+    setNewSeedPhrase(mnemonic)
+  }
+
+  const setWalletAndMnemonic = () => {
+    setSeedPhrase(newSeedPhrase)
+    setWallet(ethers.Wallet.fromPhrase(newSeedPhrase).address)
   }
 
   return (
@@ -31,7 +37,9 @@ export default function CreateAccount() {
       <Card className="seedPhraseContainer">
         {newSeedPhrase && <pre style={{whiteSpace: "pre-wrap"}}>{newSeedPhrase}</pre>}
       </Card>
-      <Button className="frontPageButton" type="default" onClick={() => setWalletAndMnemonic()}>
+      <Button className="frontPageButton" type="default" 
+      onClick={() => setWalletAndMnemonic()}
+      >
         Open your new wallet
       </Button>
       <p className="frontPageButton" onClick={() => navigate("/")}>

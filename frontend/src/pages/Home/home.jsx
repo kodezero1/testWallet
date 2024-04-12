@@ -11,7 +11,7 @@ export default function Home() {
       <img src={wallet} alt="wallet" className="frontPageLogo" />
       {/* <h2>Hey there</h2> */}
       <h4 className="h4">Welcome to your web3 wallet</h4>
-      <Button onClick={() => navigate("/createaccount")} className="frontPageButton" type="primary">
+      <Button onClick={() => navigate("/yourwallet")} className="frontPageButton" type="primary">
         Create a wallet
       </Button>
       <Button onClick={() => navigate("/recover")} className="frontPageButton" type="default">
