@@ -2,17 +2,19 @@ import React from "react";
 
 import wallet from "../../assets/wallet.svg";
 import { Button } from "antd";
+import { useNavigate } from "react-router-dom";
 
 export default function Home() {
+    const navigate = useNavigate()
   return (
     <div className="content">
       <img src={wallet} alt="wallet" className="frontPageLogo" />
       {/* <h2>Hey there</h2> */}
       <h4 className="h4">Welcome to your web3 wallet</h4>
-      <Button className="frontPageButton" type="primary">
-        create a wallet
+      <Button onClick={() => navigate("/createaccount")} className="frontPageButton" type="primary">
+        Create a wallet
       </Button>
-      <Button className="frontPageButton" type="default">
+      <Button onClick={() => navigate("/recover")} className="frontPageButton" type="default">
         Sign in with Seed phrase
       </Button>
     </div>

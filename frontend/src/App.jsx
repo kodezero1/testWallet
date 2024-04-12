@@ -1,6 +1,8 @@
 import "./App.css";
 import logo from "./assets/testWalletLogo.svg";
 import Home from "./pages/Home/home";
+import CreateAccount from "./pages/CreateAccount/CreateAccount";
+import RecoverAccount from "./pages/RecoverAccount/RecoverAccount";
 import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import { Select } from "antd";
@@ -38,6 +40,8 @@ function App() {
         </header>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/createaccount" element={<CreateAccount/>}/>
+          <Route path="/recover" element={<RecoverAccount/>}/>
         </Routes>
       </div>
     </>

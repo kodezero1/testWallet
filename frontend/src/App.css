@@ -16,6 +16,7 @@
 .frontPageButton {
   width: 90%;
   margin-top: 20px;
+  cursor: pointer;
 }
 
 .frontPageBottom {
