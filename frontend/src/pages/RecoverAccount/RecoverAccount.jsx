@@ -7,7 +7,7 @@ import { ethers } from "ethers";
 const { TextArea } = Input;
 export default function RecoverAccount({ setWallet, setSeedPhrase }) {
   const navigate = useNavigate();
-  const [typedSeed, setTypedSeed] = useState("");
+  const [typedSeed, setTypedSeed] = useState(null);
   const [nonValid, setNonValid] = useState(false)
 
   const seedAdjust = (e) => {
